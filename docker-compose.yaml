@@ -1,0 +1,13 @@
+services:
+  tritonserver:
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: [ '0' ]
+              capabilities: [ gpu ]
+    network_mode: host
+    volumes:
+      - ./models:/mnt/models
+    image: nvcr.io/nvidia/tritonserver:23.09-py3
