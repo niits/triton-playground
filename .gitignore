@@ -164,3 +164,4 @@ cython_debug/
 *.onnx
 *.onnx_data
 models/*/python*
+*.plan

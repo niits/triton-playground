@@ -1,3 +1,6 @@
+volumes:
+  zsh-history:
+
 services:
   tritonserver:
     deploy:
@@ -10,6 +13,7 @@ services:
     volumes:
       - ./models:/mnt/models
       - /home/tran.duc.trungb/.cache/huggingface:/mnt/hf-home:ro
+      - ./triton_workspace:/mnt/workspace
     environment:
       - HF_HOME=/mnt/hf-home
     ports:
@@ -18,5 +22,5 @@ services:
       - 8002:8002
     build:
       context: dockerfiles
-      dockerfile: Dockerfile
+      dockerfile: server.Dockerfile
     command: ["tritonserver", "--model-repository=/mnt/models", "--disable-auto-complete-config", "--model-control-mode=none"]

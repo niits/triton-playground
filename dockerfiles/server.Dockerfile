@@ -1,4 +1,4 @@
-FROM nvcr.io/nvidia/tritonserver:24.03-pyt-python-py3
+FROM nvcr.io/nvidia/tritonserver:24.03-py3
 
 RUN apt update \
     && apt-get install libopencv-dev libopencv-core-dev -y \
