@@ -163,4 +163,8 @@ cython_debug/
 *.pt
 *.onnx
 *.onnx_data
-models/*/python*
+01.getting_started/models/*/
+!01.getting_started/models/*/config.pbtxt
+
+
+02.build_tensorrt_from_sd/exported-models
