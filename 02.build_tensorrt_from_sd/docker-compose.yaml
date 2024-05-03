@@ -19,3 +19,19 @@ services:
       - HF_HOME=/mnt/hf-home
     image: nvcr.io/nvidia/tensorrt:24.03-py3
     command: python -m http.server
+  tritonserver:
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: [ '0' ]
+              capabilities: [ gpu ]
+    volumes:
+      - ./models:/mnt/models
+    ports:
+      - 8000:8000
+      - 8001:8001
+      - 8002:8002
+    image: nvcr.io/nvidia/tritonserver:24.04-py3
+    command: ["tritonserver", "--model-repository=/mnt/models",  "--model-control-mode=none"]

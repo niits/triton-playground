@@ -43,13 +43,13 @@ class DummyTimestepInputGenerator(DummyInputGenerator):
         int_dtype: str = "int64",
         float_dtype: str = "fp32",
     ):
-        shape = [self.batch_size, 1]
-
         if input_name == "timestep":
+            shape = [self.batch_size]
             return self.random_int_tensor(
                 shape, max_value=self.vocab_size, framework=framework, dtype=int_dtype
             )
 
+        shape = [self.batch_size, 1]
         return self.random_float_tensor(
             shape, max_value=self.vocab_size, framework=framework, dtype=float_dtype
         )
