@@ -168,3 +168,7 @@ cython_debug/
 
 
 02.build_tensorrt_from_sd/exported-models
+
+03.ensemble_models/badger
+03.ensemble_models/models/*/*/*.plan
+03.ensemble_models/assets/*.plan
